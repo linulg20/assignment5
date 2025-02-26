@@ -1,48 +1,48 @@
 package org.example.Assignment;
 import java.util.Objects;
 
-// Class representing an Invoice with a customer and a value
-public class Invoice {
-    private final String customer;  // Customer name associated with the invoice (immutable)
-    private final int value;  // Invoice value (immutable)
 
-    // Constructor to initialize the Invoice object with a customer name and value
+public class Invoice {
+    private final String customer;  //immutable value
+    private final int value;  //immutable value
+
+    //initializing the customer and value
     public Invoice(String customer, int value) {
         this.customer = customer;
         this.value = value;
     }
 
-    // Overrides the equals method to compare two Invoice objects based on their attributes
+
     @Override
     public boolean equals(Object o) {
-        if (this == o) return true;  // Checks if the objects are the same instance
-        if (o == null || getClass() != o.getClass()) return false;  // Checks for null or different class types
-        Invoice invoice = (Invoice) o;  // Casts the object to an Invoice
-        return value == invoice.value &&  // Compares the value attribute
-                customer.equals(invoice.customer);  // Compares the customer attribute
+        if (this == o) return true;  //condition to ensure of two instances are the same
+        if (o == null || getClass() != o.getClass()) return false;  // checks if its null or a different class
+        Invoice invoice = (Invoice) o;  //converting the object to an invoice
+        return value == invoice.value &&  //checking the value if its the same
+                customer.equals(invoice.customer);  // and the same thing for the customer
     }
 
-    // Overrides the hashCode method to generate a hash based on the customer's name and value
+
     @Override
     public int hashCode() {
-        return Objects.hash(customer, value);  // Generates a hash using Java's Objects utility
+        return Objects.hash(customer, value);
     }
 
-    // Overrides the toString method to provide a string representation of the Invoice object
+
     @Override
     public String toString() {
         return "Invoice{" +
-                "customer='" + customer + '\'' +  // Appends the customer name
-                ", value=" + value +  // Appends the value
-                '}';  // Closes the string representation
+                "customer='" + customer + '\'' +  //adding the customer name
+                ", value=" + value +  // adding the value
+                '}';
     }
 
-    // Getter method to retrieve the customer name
+    // Getter method for the customer and value
     public String getCustomer() {
         return customer;
     }
 
-    // Getter method to retrieve the invoice value
+
     public int getValue() {
         return value;
     }
