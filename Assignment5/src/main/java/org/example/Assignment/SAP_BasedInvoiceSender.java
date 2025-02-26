@@ -21,6 +21,7 @@ public class SAP_BasedInvoiceSender {
             try {
                 sap.send(invoice);
             } catch (FailToSendSAPInvoiceException e) {
+                failedInvoices.add(invoice);
                 System.out.println("SAP invoice failed for: " + invoice);
             }
         }
